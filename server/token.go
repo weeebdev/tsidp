@@ -523,10 +523,10 @@ func (s *IDPServer) issueTokens(w http.ResponseWriter, r *http.Request, ar *Auth
 	who := ar.RemoteUser
 
 	n := who.Node.View()
-	if n.IsTagged() {
-		writeHTTPError(w, r, http.StatusBadRequest, ecInvalidRequest, "tagged nodes not supported", nil)
-		return
-	}
+	// if n.IsTagged() {
+	// 	writeHTTPError(w, r, http.StatusBadRequest, ecInvalidRequest, "tagged nodes not supported", nil)
+	// 	return
+	// }
 
 	// Build audience claim - for exchanged tokens use audiences, otherwise use clientID + resources
 	var audience jwt.Audience
