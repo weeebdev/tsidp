@@ -78,10 +78,10 @@ func (s *IDPServer) serveUserInfo(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ui := userInfo{}
-	if ar.RemoteUser.Node.IsTagged() {
-		writeHTTPError(w, r, http.StatusBadRequest, ecInvalidRequest, "tagged nodes not supported", nil)
-		return
-	}
+	// if ar.RemoteUser.Node.IsTagged() {
+	// 	writeHTTPError(w, r, http.StatusBadRequest, ecInvalidRequest, "tagged nodes not supported", nil)
+	// 	return
+	// }
 
 	// Sub is always included (openid scope is mandatory)
 	ui.Sub = ar.RemoteUser.Node.User.String()
